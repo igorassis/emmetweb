@@ -1,0 +1,41 @@
+﻿
+@{
+    ViewBag.Title = "Login";
+}
+<style>
+    .flex-container {
+        display: flex;
+        height: 300px;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .fields {
+        border-radius: 30px;
+    }
+
+    .btns {
+        display: flex;
+        flex-direction: row;
+    }
+</style>
+@{
+    if (ViewBag.LoginError != null)
+    {
+        <script>
+            alert("An Error occurred, try again later!");
+        </script>
+    }
+}
+<form action="@Url.Action("DoLogin", "Home")" method="post" class="flex-container">
+    <label>Username:</label>
+    <input type="email" id="usr" name="email">
+    <label>Password:</label>
+    <input type="password" name="password" />
+    <div class="btns">
+        <input type="button" value="Register" onclick="location.href='@Url.Action("Register", "Home")'" />
+        <input type="submit" value="Sign In" />
+    </div>
+</form>
+

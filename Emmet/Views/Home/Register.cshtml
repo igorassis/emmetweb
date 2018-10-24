@@ -1,0 +1,40 @@
+﻿
+@{
+    ViewBag.Title = "Register";
+}
+<style>
+    .flex-container {
+        margin-top:80px;
+        display: flex;
+        height: 300px;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+    }
+</style>
+
+@{ 
+    if(ViewBag.ErrorMsg != null)
+    {
+        <script>
+            alert("Password does not match the confirm password");
+        </script>
+    }
+}
+
+<form action="@Url.Action("DoRegister", "Home")" method="post" class="flex-container">
+    <label>Email:</label>
+    <input type="text" id="usr" name="email">
+    <label>Name:</label>
+    <input type="text" id="name" name="name">
+    <label>Password:</label>
+    <input type="password" name="pwd" />
+    <label>Confirm Password: </label>
+    <input type="password" name="confirmPwd" />
+
+    <div class="btns">
+        <input type="button" value="Cancel" onclick="location.href='@Url.Action("Index", "Home")'" />
+        <input type="submit" value="Register" />
+    </div>
+</form>
+
